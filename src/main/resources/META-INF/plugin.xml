@@ -1,0 +1,47 @@
+<idea-plugin>
+    <id>ballerina.com.example.ballerina</id>
+    <name>Ballerina Sample</name>
+    <vendor email="matt@example.com" url="http://www.example.com">Example Co</vendor>
+
+    <description><![CDATA[
+    This is a proof of concept plugin looking into the ballerina IntelliJ library.
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <preloadingActivity implementation="com.example.ballerina.HelloPreloadingActivity"
+                            id="com.example.ballerina.HelloPreloadingActivity"/>
+
+        <localInspection displayName="LSP"
+                         shortName="LSP"
+                         enabledByDefault="true"
+                         implementationClass="org.wso2.lsp4intellij.contributors.inspection.DummyLSPInspection"
+                         groupName="LSP" />
+
+        <completion.contributor implementationClass="org.wso2.lsp4intellij.contributors.LSPCompletionContributor"
+                                id="LSPCompletionContributor" language="any"/>
+
+    </extensions>
+
+    <application-components>
+        <component>
+            <implementation-class>org.wso2.lsp4intellij.IntellijLanguageClient</implementation-class>
+        </component>
+    </application-components>
+
+    <actions>
+        <group id="MyPlugin.SampleMenu" text="_Sample Menu" description="Sample menu">
+            <add-to-group group-id="MainMenu" anchor="last"/>
+            <action id="Myplugin.Textboxes" class="com.example.ballerina.HelloAction" text="Text _Boxes"
+                    description="A test menu item"/>
+        </group>
+    </actions>
+    <actions>
+        <!-- Add your actions here -->
+    </actions>
+</idea-plugin>
