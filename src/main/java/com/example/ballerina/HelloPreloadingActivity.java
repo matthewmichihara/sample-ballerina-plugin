@@ -10,7 +10,7 @@ public class HelloPreloadingActivity extends PreloadingActivity {
   @Override
   public void preload(@NotNull ProgressIndicator indicator) {
     RawCommandServerDefinition serverDefinition =
-        new RawCommandServerDefinition("txt", new String[] {"./all-caps-server-4", "--stdio"});
+        new RawCommandServerDefinition("txt", new String[] {"./all-caps-server", "--stdio"});
     IntellijLanguageClient.addServerDefinition(serverDefinition);
   }
 }
